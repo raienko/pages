@@ -42,7 +42,7 @@
     window.onload = function() {
       document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        emailjs.sendForm('service_0l67vpi', 'template_25ynqsk', this);
+        emailjs.sendForm('service_0l67vpi', 'template_25ynqsk', this).finally(() => window.location.reload());
       });
     }
   </script>
@@ -57,10 +57,10 @@
     <input type="text" id="name" name="user_name" placeholder="Your name..">
 
     <label for="email">Email</label>
-    <input type="email" id="email" name="user_email" placeholder="Your email..">
+    <input type="email" id="email" name="user_email" placeholder="Your email.." required>
 
     <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
 
     <input type="submit" value="Submit">
   </form>
