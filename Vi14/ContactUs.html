@@ -46,16 +46,6 @@
   });
   }
   </script>
-
-  <script type="text/javascript">(function(){
-    const searchParams = new URLSearchParams(window.location.search);
-    const params = ['name', 'email', 'subject', 'message', 'userId'];
-    params.forEach(key => {
-      const input = document.getElementById(key);
-      input.value = searchParams.get(key);
-    });
-  })();</script>
-
 </head>
 <body>
 
@@ -83,6 +73,18 @@
     <input type="userId" id="userId" name="user_id" hidden="hidden">
   </form>
 </div>
+
+<script type="text/javascript">(function(){
+  const searchParams = new URLSearchParams(window.location.search);
+  const params = ['name', 'email', 'subject', 'message', 'userId'];
+  params.forEach(key => {
+    const input = document.getElementById(key);
+    input.value = searchParams.get(key);
+    if (key === 'subject' && !input.value) {
+      input.value = 'help'
+    }
+  });
+})();</script>
 
 </body>
 </html>
