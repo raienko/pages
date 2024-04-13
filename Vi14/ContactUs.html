@@ -39,13 +39,23 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">(function(){ emailjs.init({ publicKey: "bIFVlq6dYemj9YKO0" })})();</script>
   <script type="text/javascript">
-    window.onload = function() {
-      document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        emailjs.sendForm('service_0l67vpi', 'template_25ynqsk', this).finally(() => window.location.reload());
-      });
-    }
+  window.onload = function() {
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  emailjs.sendForm('service_0l67vpi', 'template_25ynqsk', this).finally(() => window.location.reload());
+  });
+  }
   </script>
+
+  <script type="text/javascript">(function(){
+    const searchParams = new URLSearchParams(window.location.search);
+    const params = ['name', 'email', 'subject', 'message', 'userId'];
+    params.forEach(key => {
+      const input = document.getElementById(key);
+      input.value = searchParams.get(key);
+    });
+  })();</script>
+
 </head>
 <body>
 
@@ -60,9 +70,17 @@
     <input type="email" id="email" name="user_email" placeholder="Your email.." required>
 
     <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
+    <select id="subject" name="subject" required>
+      <option value="help">Help needed</option>
+      <option value="delete">Remove account</option>
+    </select>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
 
     <input type="submit" value="Submit">
+
+    <input type="userId" id="userId" name="user_id" hidden="hidden">
   </form>
 </div>
 
