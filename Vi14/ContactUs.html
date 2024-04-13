@@ -79,7 +79,7 @@
   const params = ['name', 'email', 'subject', 'message', 'userId'];
   params.forEach(key => {
     const input = document.getElementById(key);
-    input.value = searchParams.get(key);
+    input.value = searchParams.get(key) || undefined;
     if (key === 'subject' && !input.value) {
       input.value = 'help'
     }
