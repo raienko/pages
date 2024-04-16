@@ -49,7 +49,7 @@
 </head>
 <body>
 
-<h3>Contact us</h3>
+<h3>Vi14: Contact us</h3>
 
 <div class="container">
   <form id="contact-form">
@@ -79,7 +79,7 @@
   const params = ['name', 'email', 'subject', 'message', 'userId'];
   params.forEach(key => {
     const input = document.getElementById(key);
-    input.value = searchParams.get(key) || undefined;
+    input.value = searchParams.get(key) || '';
     if (key === 'subject' && !input.value) {
       input.value = 'help'
     }
