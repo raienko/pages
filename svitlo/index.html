@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .status-0 {
+        background: #04AA6D;
+    }
+    .status-1 {
+        background: #ee0f29;
+    }
+    .status-2 {
+        background: #ffdd00;
+    }
+    .clock {
+        width:100%;
+        aspect-ratio:1 / 1;
+        border-radius:100%;
+        position:relative;
+        transform:rotateZ(calc((var(--nth-child) + 6)*calc(360/24)*1deg));
+    }
+
+    .clock :nth-child(1) { --nth-child: 6 }
+    .clock :nth-child(2) { --nth-child: 7 }
+    .clock :nth-child(3) { --nth-child: 8 }
+    .clock :nth-child(4) { --nth-child: 9 }
+    .clock :nth-child(5) { --nth-child: 10 }
+    .clock :nth-child(6) { --nth-child: 11 }
+    .clock :nth-child(7) { --nth-child: 12 }
+    .clock :nth-child(8) { --nth-child: 13 }
+    .clock :nth-child(9) { --nth-child: 14 }
+    .clock :nth-child(10) { --nth-child: 15 }
+    .clock :nth-child(11) { --nth-child: 16 }
+    .clock :nth-child(12) { --nth-child: 17 }
+    .clock :nth-child(13) { --nth-child: 18 }
+    .clock :nth-child(14) { --nth-child: 19 }
+    .clock :nth-child(15) { --nth-child: 20 }
+    .clock :nth-child(16) { --nth-child: 21 }
+    .clock :nth-child(17) { --nth-child: 22 }
+    .clock :nth-child(18) { --nth-child: 23 }
+    .clock :nth-child(19) { --nth-child: 24 }
+    .clock :nth-child(20) { --nth-child: 1 }
+    .clock :nth-child(21) { --nth-child: 2 }
+    .clock :nth-child(22) { --nth-child: 3 }
+    .clock :nth-child(23) { --nth-child: 4 }
+    .clock :nth-child(24) { --nth-child: 5 }
+
+    .hour {
+        left:45%;
+        top:45%;
+        position:absolute;
+        text-align:center;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:10%;
+        height:10%;
+        border-radius:100%;
+        transform:rotateZ(calc((var(--nth-child) + 6)*calc(360/24)*1deg))
+        translateY(400%)
+        rotateZ(calc((var(--nth-child) + 6)*calc(360/24)*-1deg));
+        font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+<div id="today" class="clock" hidden></div>
+<div id="tomorrow" class="clock" hidden></div>
+</body>
+<script src="./main.js"></script>
+</html>
